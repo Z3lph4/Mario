@@ -38,6 +38,11 @@ const loop = setInterval(() => {
 
     clearInterval(loop);
 
+    // Redireciona para a página inicial após um breve atraso
+    setTimeout(() => {
+      window.location.href = "./index.html";
+    }, 2000);
+
   } else {
     score++; // Incrementa a pontuação a cada loop bem-sucedido
     scoreDisplay.textContent = `Score: ${score}`; // Atualiza o display da pontuação

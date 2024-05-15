@@ -4,68 +4,91 @@
     box-sizing: border-box;
 }
 
-.game-board {
+body {
+    overflow: hidden; /* Remove a barra de rolagem */
+}
+
+.container {
     width: 100%;
-    height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(#87CEEB, #E8F6FF);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./imagens/background.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Para cobrir todo o container */
+    background-position: center; /* Para centralizar a imagem */
 }
 
-.pipe {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: pipe-animation 1.5s infinite linear;
+.menu {
+    width: 400px; /* Largura do quadrado */
+    height: 400px; /* Altura do quadrado */
+    display: flex;
+    flex-direction: column; /* Coluna para alinhar verticalmente */
+    justify-content: space-between; /* Distribui o espaço verticalmente */
+    align-items: center; /* Alinha horizontalmente */
+    text-align: center; /* Alinha o texto centralmente */
+    border-radius: 30px; /* Adiciona bordas arredondadas */
+    background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo com transparência */
+    backdrop-filter: blur(10px); /* Aplica um embaciamento */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Adiciona uma borda transparente */
 }
 
-.mario {
-    width: 150px;
-    position: absolute;
-    bottom: 0;
+.menu h1 {
+    font-size: 32px;
+    margin-top: 50px; /* Distância do topo */
+    font-family: 'Arial', sans-serif;
 }
 
-.jump {
-    animation: jump 500ms ease-out;
+.menu #start-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Espaço entre o texto e o botão "Start" */
+    margin-bottom: 50px; /* Espaço entre o botão "Start" e o final do contêiner */
 }
 
-.clouds {
-    position: absolute;
-    width: 550px;
-    animation: clouds-animation 20s infinite linear;
+.scores {
+    width: 100%; /* Largura total */
+    margin-top: 20px; /* Espaço entre o texto e os campos de pontuação */
 }
 
-@keyframes pipe-animation {
-    from {
-        right: -80px;
-    }
-    to {
-        right: 100%;
-    }
+.scores p {
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
-@keyframes jump {
-    0% {
-        bottom: 0;
-    }
-    40% {
-        bottom: 180px;
-    }
-    50% {
-        bottom: 180px;
-    }
-    100% {
-        bottom: 0;
-    }
+.scores span {
+    font-weight: bold;
 }
 
-@keyframes clouds-animation {
-    from {
-        right: -550px;
-    }
-    to {
-        right: 100%;
-    }
+#best-score,
+#current-score {
+    color: #333; /* Cor do texto dos campos de pontuação */
+}
+
+.scores p:first-child {
+    margin-bottom: 50px; /* Adiciona uma margem inferior de 15px apenas ao primeiro parágrafo */
+}
+
+/* Cores */
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
 }

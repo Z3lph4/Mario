@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/start-menu.js" defer></script>
+    
     <title>Mario Game</title>
 </head>
 <body>
-    <div class="menu">
-        <h1>Mario Game</h1>
-        <button id="start-button">Start</button>
+
+    <div class="container" style="background-image: url('./imagens/background.jpg');">
+        <!-- Conteúdo do menu aqui -->
+        <div class="menu">
+            <h1><span class="red">M</span><span class="blue">a</span><span class="green">r</span><span class="yellow">i</span><span class="red">o</span> 
+                <span class="green">G</span><span class="red">a</span><span class="yellow">m</span><span class="blue">e</span></h1>
+            <div class="scores">
+                <p>Best Score: <span id="best-score">---</span></p>
+                <p>Score: <span id="current-score">---</span></p>
+            </div>
+            <button id="start-button">Start</button>
+        </div>
+        
     </div>
-    <script src="./js/start-menu.js" defer></script>
+    
 </body>
 </html>
