@@ -40,7 +40,7 @@ const loop = setInterval(() => {
 
     // Redireciona para a página inicial após um breve atraso
     setTimeout(() => {
-      window.location.href = "./index.html";
+      window.location.href = "./index.html?score=" + score; // Passa o score final na URL
     }, 2000);
 
   } else {
