@@ -10,7 +10,11 @@ const jumpSound = document.getElementById('jump-sound');
 // Adicionando o elemento de áudio para o som de derrota
 const loseSound = document.getElementById('lose-sound');
 
+// Obtenha o elemento de áudio para a música de fundo
+const backgroundMusic = document.getElementById('background-music');
+
 let score = 0;
+let gameOver = false;
 
 // Posiciona o display da pontuação no canto superior direito
 scoreDisplay.style.position = 'absolute';
@@ -52,10 +56,16 @@ const loop = setInterval(() => {
         // Reproduz o som de derrota
         loseSound.play();
 
+        // Pausa a música de fundo
+        backgroundMusic.pause();
+
+        // Marca o jogo como terminado
+        gameOver = true;
+
         // Redireciona para a página inicial após a conclusão do som 'lose_sound'
         setTimeout(() => {
             window.location.href = "./index.html?score=" + score; // Passa o score final na URL
-        }, loseSound.duration * 800); // Espera a duração do som 'lose_sound' em milissegundos
+        }, loseSound.duration * 800);
 
     } else {
         score++; // Incrementa a pontuação a cada loop bem-sucedido
