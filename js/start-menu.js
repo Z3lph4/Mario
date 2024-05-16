@@ -23,14 +23,14 @@ function updateScore() {
 
         // Atualiza o best score
         let bestScore = localStorage.getItem('bestScore');
-        if (bestScore === null || finalScore > bestScore) {
+        if (bestScore === null || parseInt(finalScore) > parseInt(bestScore)) {
             bestScore = finalScore;
             localStorage.setItem('bestScore', bestScore);
         }
         
         const bestScoreElement = document.getElementById('best-score');
         if (bestScoreElement) {
-            bestScoreElement.textContent = `Best Score: ${bestScore !== null ? bestScore : '---'}`;
+            bestScoreElement.textContent = `Best Score: ${bestScore !== '---' ? bestScore : '---'}`;
         }
     }
 }
