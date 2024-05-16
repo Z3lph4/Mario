@@ -4,6 +4,12 @@ const scoreDisplay = document.createElement('div');
 scoreDisplay.classList.add('score');
 document.body.appendChild(scoreDisplay);
 
+// Adicionando o elemento de áudio para o som do pulo
+const jumpSound = document.getElementById('jump-sound');
+
+// Adicionando o elemento de áudio para o som de derrota
+const loseSound = document.getElementById('lose-sound');
+
 let score = 0;
 
 // Posiciona o display da pontuação no canto superior direito
@@ -13,40 +19,46 @@ scoreDisplay.style.right = '50px';
 scoreDisplay.style.color = 'red'; // Altera a cor do texto para vermelho
 
 const jump = () => {
-  mario.classList.add('jump');
+    jumpSound.currentTime = 0; // Reinicia o som se já estiver tocando
+    jumpSound.play(); // Reproduz o som do pulo
 
-  setTimeout(() => {
-    mario.classList.remove('jump');
-  }, 500);
+    mario.classList.add('jump');
+
+    setTimeout(() => {
+        mario.classList.remove('jump');
+    }, 500);
 }
 
 const loop = setInterval(() => {
 
-  const pipePosition = pipe.offsetLeft; 
-  const marioPosition = +window.getComputedStyle(mario).bottom.replace('px','');
+    const pipePosition = pipe.offsetLeft; 
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px','');
 
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
-    pipe.style.animation = 'none';
-    pipe.style.left = `${pipePosition}px`;
+    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+        pipe.style.animation = 'none';
+        pipe.style.left = `${pipePosition}px`;
 
-    mario.style.animation = 'none';
-    mario.style.bottom = `${marioPosition}px`;
+        mario.style.animation = 'none';
+        mario.style.bottom = `${marioPosition}px`;
 
-    mario.src = './imagens/game-over.png';
-    mario.style.width = '75px'
-    mario.style.marginLeft = '50px'
+        mario.src = './imagens/game-over.png';
+        mario.style.width = '75px'
+        mario.style.marginLeft = '50px'
 
-    clearInterval(loop);
+        clearInterval(loop);
 
-    // Redireciona para a página inicial após um breve atraso
-    setTimeout(() => {
-      window.location.href = "./index.html?score=" + score; // Passa o score final na URL
-    }, 2000);
+        // Reproduz o som de derrota
+        loseSound.play();
 
-  } else {
-    score++; // Incrementa a pontuação a cada loop bem-sucedido
-    scoreDisplay.textContent = `Score: ${score}`; // Atualiza o display da pontuação
-  }
+        // Redireciona para a página inicial após um breve atraso
+        setTimeout(() => {
+            window.location.href = "./index.html?score=" + score; // Passa o score final na URL
+        }, 2000);
+
+    } else {
+        score++; // Incrementa a pontuação a cada loop bem-sucedido
+        scoreDisplay.textContent = `Score: ${score}`; // Atualiza o display da pontuação
+    }
 
 }, 10);
 

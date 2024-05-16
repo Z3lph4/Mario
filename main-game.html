@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <script src="./js/sketch.js" defer></script>
     <link rel="stylesheet" href="./css/game-style.css">
+    
     <title>Mario Game</title>
 </head>
 <body>
+    
+    <div class="ground"></div>
+        <div class="game-board">
+            <img src="./imagens/clouds.png" class="clouds">
+            <img src="./imagens/mario.gif" class="mario">
+            <img src="./imagens/pipe.png" class="pipe">
+        </div>
 
-    <div class="game-board">
-        <img src="./imagens/clouds.png" class="clouds">
-        <img src="./imagens/mario.gif" class="mario">
-        <img src="./imagens/pipe.png" class="pipe">
-    </div>
+    <!-- Adicionando o elemento de áudio para o som do pulo -->
+    <audio id="jump-sound">
+        <source src="./sons/jump_effect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-    <script src="./js/sketch.js" defer></script> <!-- Adicionando o script sketch.js -->
+    <!-- Adicionando o elemento de áudio para o som de derrota -->
+    <audio id="lose-sound">
+        <source src="./sons/lose_sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
 </body>
 </html>

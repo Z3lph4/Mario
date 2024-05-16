@@ -1,7 +1,9 @@
-const startButton = document.getElementById('start-button');
+document.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('start-button');
 
-startButton.addEventListener('click', () => {
-    window.location.href = "./main-game.html"; // Redireciona para a página do jogo (main-game.html)
+    startButton.addEventListener('click', () => {
+        window.location.href = "./main-game.html"; // Redireciona para a página do jogo (main-game.html)
+    });
 });
 
 // Função para recolher o score final da partida
