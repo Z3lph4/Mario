@@ -19,8 +19,10 @@ scoreDisplay.style.right = '50px';
 scoreDisplay.style.color = 'red'; // Altera a cor do texto para vermelho
 
 const jump = () => {
-    jumpSound.currentTime = 0; // Reinicia o som se já estiver tocando
-    jumpSound.play(); // Reproduz o som do pulo
+    setTimeout(() => { // Atrasa a reprodução do som de pulo em 1 segundo
+        jumpSound.currentTime = 0; // Reinicia o som se já estiver tocando
+        jumpSound.play(); // Reproduz o som do pulo
+    }, -1000); // Atraso de 1 segundo
 
     mario.classList.add('jump');
 
@@ -50,10 +52,10 @@ const loop = setInterval(() => {
         // Reproduz o som de derrota
         loseSound.play();
 
-        // Redireciona para a página inicial após um breve atraso
+        // Redireciona para a página inicial após a conclusão do som 'lose_sound'
         setTimeout(() => {
             window.location.href = "./index.html?score=" + score; // Passa o score final na URL
-        }, 2000);
+        }, loseSound.duration * 800); // Espera a duração do som 'lose_sound' em milissegundos
 
     } else {
         score++; // Incrementa a pontuação a cada loop bem-sucedido
