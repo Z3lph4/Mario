@@ -14,7 +14,6 @@ const loseSound = document.getElementById('lose-sound');
 const backgroundMusic = document.getElementById('background-music');
 
 let score = 0;
-let gameOver = false;
 
 // Posiciona o display da pontuação no canto superior direito
 scoreDisplay.style.position = 'absolute';
@@ -59,9 +58,6 @@ const loop = setInterval(() => {
         // Pausa a música de fundo
         backgroundMusic.pause();
 
-        // Marca o jogo como terminado
-        gameOver = true;
-
         // Redireciona para a página inicial após a conclusão do som 'lose_sound'
         setTimeout(() => {
             window.location.href = "./index.html?score=" + score; // Passa o score final na URL
@@ -74,4 +70,4 @@ const loop = setInterval(() => {
 
 }, 10);
 
-document.addEventListener('keydown', jump);
+document.addEventListener('keydown', jump); 
